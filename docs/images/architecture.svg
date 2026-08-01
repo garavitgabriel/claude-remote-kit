@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1 L 9 5 L 0 9 z" fill="#7c8db5"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="440" rx="14" fill="#0d1220"/>
+
+  <!-- title -->
+  <text x="480" y="42" text-anchor="middle" fill="#e8ecf5" font-size="20" font-weight="bold">claude-remote-kit</text>
+  <text x="480" y="64" text-anchor="middle" fill="#7c8db5" font-size="13">the host is the workspace · devices are viewports</text>
+
+  <!-- viewports column -->
+  <text x="150" y="106" text-anchor="middle" fill="#9fb0d0" font-size="13" font-weight="bold">ANYWHERE</text>
+
+  <!-- phone -->
+  <rect x="90" y="122" width="120" height="150" rx="16" fill="#161e33" stroke="#33405f" stroke-width="1.5"/>
+  <rect x="102" y="136" width="96" height="106" rx="6" fill="#0d1220"/>
+  <text x="150" y="158" text-anchor="middle" fill="#57d364" font-size="10">Termius</text>
+  <rect x="108" y="168" width="84" height="16" rx="3" fill="#1d2a45"/>
+  <text x="114" y="180" fill="#c9d4e8" font-size="9">▶ my-app</text>
+  <rect x="108" y="188" width="84" height="16" rx="3" fill="#1d2a45"/>
+  <text x="114" y="200" fill="#c9d4e8" font-size="9">▶ blog</text>
+  <rect x="108" y="208" width="84" height="16" rx="3" fill="#1d2a45"/>
+  <text x="114" y="220" fill="#c9d4e8" font-size="9">▶ side-project</text>
+  <circle cx="150" cy="258" r="7" fill="none" stroke="#33405f" stroke-width="1.5"/>
+  <text x="150" y="296" text-anchor="middle" fill="#7c8db5" font-size="11">phone</text>
+  <text x="150" y="312" text-anchor="middle" fill="#5b6b8c" font-size="10">one tile = one project</text>
+
+  <!-- laptop -->
+  <rect x="95" y="336" width="110" height="62" rx="8" fill="#161e33" stroke="#33405f" stroke-width="1.5"/>
+  <rect x="105" y="345" width="90" height="38" rx="3" fill="#0d1220"/>
+  <text x="112" y="368" fill="#c9d4e8" font-size="9">$ ssh host-tmux</text>
+  <text x="150" y="416" text-anchor="middle" fill="#7c8db5" font-size="11">laptop</text>
+
+  <!-- tailscale mesh -->
+  <rect x="300" y="150" width="200" height="180" rx="14" fill="#12203a" stroke="#2a4a7f" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="400" y="182" text-anchor="middle" fill="#6db3f2" font-size="13" font-weight="bold">Tailscale</text>
+  <text x="400" y="202" text-anchor="middle" fill="#7c8db5" font-size="11">private mesh · MagicDNS</text>
+  <text x="400" y="240" text-anchor="middle" fill="#9fb0d0" font-size="11">no public SSH</text>
+  <text x="400" y="258" text-anchor="middle" fill="#9fb0d0" font-size="11">no port forwarding</text>
+  <text x="400" y="276" text-anchor="middle" fill="#9fb0d0" font-size="11">names, not IPs</text>
+  <text x="400" y="308" text-anchor="middle" fill="#5b6b8c" font-size="10">ssh my-host  ·  ssh my-host-tmux</text>
+
+  <!-- arrows in -->
+  <line x1="215" y1="200" x2="295" y2="220" stroke="#7c8db5" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="210" y1="360" x2="295" y2="280" stroke="#7c8db5" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- arrow out -->
+  <line x1="505" y1="240" x2="570" y2="240" stroke="#7c8db5" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- host -->
+  <rect x="580" y="96" width="330" height="316" rx="14" fill="#161e33" stroke="#33405f" stroke-width="1.5"/>
+  <text x="745" y="126" text-anchor="middle" fill="#e8ecf5" font-size="13" font-weight="bold">ALWAYS-ON HOST</text>
+  <text x="745" y="144" text-anchor="middle" fill="#7c8db5" font-size="11">mac mini · desktop · vps</text>
+
+  <!-- tmux session cards -->
+  <rect x="600" y="160" width="290" height="66" rx="8" fill="#0d1220" stroke="#2a4a7f"/>
+  <text x="612" y="180" fill="#57d364" font-size="11" font-weight="bold">tmux · my-app</text>
+  <text x="612" y="198" fill="#c9d4e8" font-size="10">└ claude — refactoring, 40 min in</text>
+  <text x="612" y="214" fill="#5b6b8c" font-size="9">Fable 5 | my-app | ███████░░░ 68% | ⏱ 34% ↻ 3:00pm</text>
+
+  <rect x="600" y="236" width="290" height="52" rx="8" fill="#0d1220" stroke="#2a4a7f"/>
+  <text x="612" y="256" fill="#57d364" font-size="11" font-weight="bold">tmux · blog</text>
+  <text x="612" y="274" fill="#c9d4e8" font-size="10">└ claude — waiting for you</text>
+
+  <rect x="600" y="298" width="290" height="52" rx="8" fill="#0d1220" stroke="#2a4a7f"/>
+  <text x="612" y="318" fill="#57d364" font-size="11" font-weight="bold">tmux · my-app-2</text>
+  <text x="612" y="336" fill="#c9d4e8" font-size="10">└ tests / logs</text>
+
+  <text x="745" y="380" text-anchor="middle" fill="#9fb0d0" font-size="11">sessions survive disconnects, closed apps,</text>
+  <text x="745" y="396" text-anchor="middle" fill="#9fb0d0" font-size="11">device switches — attach from anything</text>
+</svg>

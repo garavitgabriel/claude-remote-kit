@@ -1,0 +1,71 @@
+# claude-remote-kit — SSH host alias template
+# Copy the blocks you need into ~/.ssh/config (or let /remote-setup do it).
+#
+# The idea: connecting to one of your machines should cost one word, not a
+# remembered tuple of user + IP + flags. Keep ONE config identical on every
+# machine — the alias for the box you're sitting on is simply unused, so
+# there's nothing per-machine to edit and nothing to drift.
+#
+# Pattern:  ssh <name>        plain shell — safe for scp / rsync / git
+#           ssh <name>-tmux   lands straight in the persistent tmux session
+#
+# NEVER put RemoteCommand on the plain alias: it breaks scp/rsync/git to that
+# host (the file transfer tries to run the command instead).
+#
+# Transport: Tailscale MagicDNS hostnames, not IPs. Bare hostnames resolve on
+# any tailnet member, survive re-registration, and never go stale. Find yours
+# with: tailscale status
+#
+# This file contains NO secrets — hostnames and usernames only. Private keys
+# never live here.
+
+# Shared defaults for everything. UseKeychain is macOS-only — IgnoreUnknown
+# keeps the same file loadable on Linux hosts, which is what lets one config
+# ride every machine. Keepalives live under Host * on purpose: they keep
+# applying no matter what you rename your aliases to.
+Host *
+  IgnoreUnknown UseKeychain
+  AddKeysToAgent yes
+  UseKeychain yes
+  ServerAliveInterval 30
+  ServerAliveCountMax 4
+
+# ── example: always-on desktop / mini / VPS (the "host" machine) ──
+# Replace HostName with your machine's MagicDNS name from `tailscale status`,
+# and User with your login on THAT machine (check with `whoami` there —
+# wrong-username failures look identical to key failures).
+Host workstation
+  HostName my-desktop
+  User myuser
+
+Host workstation-tmux
+  HostName my-desktop
+  User myuser
+  RequestTTY yes
+  # Point -s at the session you actually work in (with the kit's `tm`, that's
+  # the project FOLDER NAME, e.g. `-s my-app`) — a generic name like `main`
+  # attaches to an empty session beside your real ones.
+  # If the target says "command not found: tmux": RemoteCommand runs outside
+  # your login PATH, so use the absolute path from `command -v tmux` on that
+  # host (Homebrew Apple Silicon: /opt/homebrew/bin/tmux).
+  RemoteCommand tmux new-session -A -s my-app
+
+# ── example: laptop ──
+Host laptop
+  HostName my-macbook
+  User myuser
+
+Host laptop-tmux
+  HostName my-macbook
+  User myuser
+  RequestTTY yes
+  RemoteCommand tmux new-session -A -s my-app
+
+# ── troubleshooting notes (the three failures that look identical) ──
+# 1. Host answers on the tailnet but refuses port 22 → Remote Login is off
+#    (macOS ships it disabled). Check: nc -z <hostname> 22
+#    Fix: System Settings → General → Sharing → Remote Login.
+# 2. Connects but prompts for a password → your pubkey isn't on that host.
+#    Fix: ssh-copy-id <alias>
+# 3. "Permission denied" → could be the key, could be the wrong username.
+#    Verify the username on the target with `whoami` before debugging keys.
