@@ -3,16 +3,24 @@
 **Start Claude Code on your computer. Leave. Open your phone — the same
 conversation is there, still running, exactly where you left it.** Reply from
 the couch, from a queue, from the airport. Sit back down at your computer and
-it's all there again. That's the whole product.
+it's all there again. Not a cloud copy — the same terminal session. That's
+the whole product.
 
 ![claude-remote-kit architecture](docs/images/architecture.svg)
 
 <!-- DEMO: replace with a real screen recording — phone → Termius tile → live
      Claude session. A 15-second GIF here is worth the whole README. -->
 
-## Wait — Claude Code on my phone?
+## "Doesn't the Claude mobile app already do this?"
 
-Sort of, and better: **nothing runs on your phone.** Claude Code keeps
+No — and the difference is the point. The Claude mobile app and claude.ai
+cloud sessions run Claude *somewhere else*: a separate sandbox, a separate
+checkout, a separate conversation. This kit gives your phone **the same
+terminal session as your computer** — same repo, same permissions, same
+local tools, same conversation, same scrollback. Walk to your desk and pick
+up exactly where your thumb left off.
+
+And **nothing runs on your phone.** Claude Code keeps
 running in a terminal on your computer, even after you close the window or
 walk away. Your phone just *looks at* that terminal through a secure private
 connection — same text, same session, live. So does your laptop. Any screen
@@ -21,8 +29,8 @@ never stops the work.
 
 Which means:
 
-- You give Claude a big task, close your laptop, and check on it from your
-  phone 20 minutes later — it's been working the whole time.
+- You give Claude a big refactor, close your laptop, and answer its one
+  blocking question from a coffee line — it's been working the whole time.
 - You answer one of Claude's questions from bed so it can keep going
   overnight.
 - Your computer's terminal app crashes, or the Wi-Fi drops — nothing is
@@ -65,8 +73,9 @@ flowchart LR
 
 ## Setup — let Claude install it for you
 
-You need: a computer that stays on (a desktop, a Mac mini, an old laptop
-that stays plugged in — or any cheap VPS), and about 20 minutes.
+You need a computer that stays on — a desktop, a Mac mini, that old laptop
+in a drawer, or a $5 VPS. If Claude Code runs on it today, you're 20 minutes
+away.
 
 ```bash
 git clone https://github.com/garavitgabriel/claude-remote-kit.git
@@ -75,8 +84,8 @@ claude
 > /remote-setup
 ```
 
-That's it. Claude walks you through the rest **interactively** — it checks
-what's already on your machine, asks simple questions ("is this the computer
+That's it. This is not a tutorial you follow — **it's an installer that
+talks.** Claude checks what's already on your machine, asks simple questions ("is this the computer
 that stays on, or the laptop you connect from?"), installs the pieces (backing
 up anything it touches), guides you through the two phone apps step by step,
 and *tests that everything actually works* before saying it's done. At the
@@ -196,6 +205,9 @@ you no longer want from `~/.ssh/config`.
   · [jq](https://jqlang.github.io/jq/) · [Tailscale](https://tailscale.com)
   (free for personal use) — `/remote-setup` installs/checks these for you
 - **Phone:** [Termius](https://termius.com) (free tier is enough) + Tailscale
+- **Desktop terminal:** any — if you're choosing,
+  [Ghostty](https://ghostty.org) is excellent (the kit's TERM fallback
+  already handles its terminfo quirk on remote hosts)
 
 ## License
 

@@ -88,8 +88,3 @@ attached: `tmux attach -d -t name` (`-d` kicks the others).
 `/remote-setup doctor` in Claude Code, or `bash doctor.sh` from the repo.
 Every check prints its fix.
 
-## Reading artifacts away from the keyboard
-
-If your sessions write markdown/HTML you want to *read* on the phone (briefs,
-reports, review queues), a terminal is the wrong surface — push them to
-[Marknote](https://marknote.app) and read them in a mobile inbox instead.
