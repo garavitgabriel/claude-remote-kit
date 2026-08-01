@@ -6,6 +6,11 @@ the couch, from a queue, from the airport. Sit back down at your computer and
 it's all there again. Not a cloud copy — the same terminal session. That's
 the whole product.
 
+And it's not only Claude: anything that runs in a terminal stays alive and
+reachable the same way — **Codex CLI, Gemini CLI, aider, opencode**, your
+dev server, a long build. Claude Code just gets first-class treatment: the
+interactive installer and the status line are built for it.
+
 ![claude-remote-kit architecture](docs/images/architecture.svg)
 
 <!-- DEMO: replace with a real screen recording — phone → Termius tile → live
