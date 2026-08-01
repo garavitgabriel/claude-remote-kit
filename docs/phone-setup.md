@@ -1,7 +1,10 @@
 # Phone setup (Termius + Tailscale)
 
-The phone side is ~10 minutes, all in two apps. `/remote-setup` walks you
-through this interactively; this doc is the standalone version.
+The phone side is ~10 minutes, all in two apps — and remember: **nothing
+installs or runs Claude on your phone.** Tailscale is the secure line
+between your devices; Termius is the window your phone looks through.
+`/remote-setup` walks you through this interactively; this doc is the
+standalone version.
 
 ## 1. Tailscale on the phone
 

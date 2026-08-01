@@ -1,8 +1,14 @@
 # Daily driving
 
+This assumes setup is done (`/remote-setup`). If a command below says
+"command not found", open a new terminal window first — that's usually all
+it is.
+
 The mental model: **the host is the workspace, devices are viewports.**
-Nothing you do on a phone or laptop starts or stops work — it just looks at
-work that lives on the host.
+"Host" = the computer that stays on; everything runs there. Your phone and
+laptop never start or stop work — they just *look at* work that lives on the
+host, the way opening YouTube on two devices shows the same video. Close a
+viewport, nothing stops.
 
 ## Start
 
